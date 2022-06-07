@@ -1,6 +1,6 @@
 <template>
 	<view class="goods_list">
-		<goods-list :goods="goods"></goods-list>
+		<goods-list @itemClick="goGoodsDetail" :goods="goods"></goods-list>
 		<view class="isOver" v-if="flag">
 			--------我是有底线的--------
 		</view>
@@ -27,6 +27,11 @@
 				})
 				this.goods = [...this.goods, ...res.data.message]
 				callback && callback()
+			},
+			goGoodsDetail(id){
+				uni.navigateTo({
+					url:'../goods-detail/goods-detail?id=' + id
+				})
 			}
 		},
 		onReachBottom() {
@@ -43,7 +48,6 @@
 					uni.stopPullDownRefresh()
 				})
 			}, 1000)
-			
 		}
 	}
 </script>
