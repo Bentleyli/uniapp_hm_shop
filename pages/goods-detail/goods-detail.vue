@@ -1,6 +1,6 @@
 <template>
 	<view>
-		商品详情
+		商品详情1
 	</view>
 </template>
 
